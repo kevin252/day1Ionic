@@ -1,0 +1,84 @@
+<ion-header>
+    <ion-navbar>
+
+        <ion-title style="text-align: center">Inicio</ion-title>
+
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+   
+            <ion-card *ngFor="let twitt of twitts"
+                      >
+                <div (click)="openListing(twitt)">
+                    <ion-row>
+
+                        <ion-col col-2>
+                            <button ion-button
+                                    icon-left
+                                    clear>
+                        <ion-icon style="font-size: 40px" name="logo-twitter"></ion-icon>
+                      </button>
+                        </ion-col>
+                        <ion-col col-10>
+                            <ion-item style="padding-left: 0px !important">
+                                <ion-avatar item-start
+                                            clear>
+                                    <img [src]="twitt.avatar">
+                                </ion-avatar>
+                                <p>{{twitt.nick}}</p>
+                            </ion-item>
+                        </ion-col>
+    
+                    </ion-row>
+    
+                    <ion-row>
+                        <ion-col col-2>
+    
+                        </ion-col>
+                        <ion-col col-10>
+                            <ion-card-title style="text-align: justify;padding-right: 20px">
+                                {{twitt.title}}
+                            </ion-card-title>
+                            <img [src]="twitt.image">
+                            <ion-card-content style="padding-left: 0px !important; ">
+                                <p>{{twitt.content}}</p>
+                            </ion-card-content>
+                        </ion-col>
+                    </ion-row>
+                </div>
+                
+
+                <ion-row>
+                    <ion-col>
+                      <button (click)="addComment(twitt)" ion-button icon-left clear small>
+                        <ion-icon name="chatboxes"></ion-icon>
+                        <div>{{getLengthComments(twitt)}}</div>
+                      </button>
+                    </ion-col>
+                    <ion-col>
+                      <button (click)="showAlert('Retwitts')" ion-button icon-left clear small>
+                        <ion-icon name="ios-git-compare"></ion-icon>
+                        <div>4</div>
+                      </button>
+                    </ion-col>
+                    <ion-col>
+                        <button (click)="showAlert('Favoritos')" ion-button icon-left clear small>
+                          <ion-icon name="heart-outline"></ion-icon>
+                          <div>4</div>
+                        </button>
+                      </ion-col>
+                      <ion-col>
+                          <button (click)="showAlert('Mensajes')" ion-button icon-left clear small>
+                            <ion-icon name="mail"></ion-icon>
+                            
+                          </button>
+                        </ion-col>
+                    
+                  </ion-row>
+
+            </ion-card>
+           
+
+</ion-content>

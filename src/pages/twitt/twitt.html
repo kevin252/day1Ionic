@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-navbar>
+
+      <ion-title style="text-align: center">Twitt</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+<ion-content>
+
+<ion-card >
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img [src]="twitt.avatar">
+      </ion-avatar>
+      <h2>{{twitt.nick}}</h2>
+      <p>November 5, 1955</p>
+    </ion-item>
+    <ion-title>
+        {{twitt.title}}
+      </ion-title>
+    <img [src]="twitt.image">
+  
+   
+    <ion-card-content>
+      <p>{{twitt.content}}</p>
+    </ion-card-content>
+  
+    <ion-row>
+        <ion-col>
+          <button (click)="addComment()" ion-button icon-left clear small>
+            <ion-icon name="chatboxes"></ion-icon>
+            <div>{{getLengthComments()}}</div>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button (click)="showAlert('Retwitts')" ion-button icon-left clear small>
+            <ion-icon name="ios-git-compare"></ion-icon>
+            <div>4</div>
+          </button>
+        </ion-col>
+        <ion-col>
+            <button (click)="showAlert('Favoritos')" ion-button icon-left clear small>
+              <ion-icon name="heart-outline"></ion-icon>
+              <div>4</div>
+            </button>
+          </ion-col>
+          <ion-col>
+              <button (click)="showAlert('Mensajes')" ion-button icon-left clear small>
+                <ion-icon name="mail"></ion-icon>
+                
+              </button>
+            </ion-col>
+        
+      </ion-row>
+  
+  </ion-card>
+
+  <ion-list>
+    <ion-item *ngFor="let comment of twitt.comments">
+      <ion-avatar item-start>
+        <img [src]="twitt.avatar">
+      </ion-avatar>
+      <h2>Cher</h2>
+      <p>{{comment.comment}}</p>
+    </ion-item>
+  </ion-list>
+  
+    </ion-content>
